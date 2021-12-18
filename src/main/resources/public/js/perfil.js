@@ -1,3 +1,4 @@
+const dominio = "http://rescatedepatitasdds.herokuapp.com";
 
 function verificarEstado(status, datos){
     if(status == 200) {
@@ -42,10 +43,60 @@ let app = new Vue({
         activa: false
     },
     methods: {
+        registrarMascotaUser: function() {
+            let idSesion = localStorage.getItem("IDSESION");
+            let status;
+            let datos;
+            fetch(dominio + "/registrar-mascota/registrado", {
+                method: "POST",
+                headers: {
+                    "Authorization": idSesion
+                },
+                body: JSON.stringify({
+                    tipoPerro: this.tipoPerro,
+                    tipoGato: this.tipoGato,
+                    sexoHembra: this.sexoHembra,
+                    sexoMacho: this.sexoMacho,
+                    nombreMascota: this.nombreMascota,
+                    apodoMascota: this.apodoMascota,
+                    edadMascota: this.edadMascota,
+                    descripcionMascota: this.descripcionMascota
+                })
+            })
+                .then(response => {
+                    status = response.status
+                    datos = response.json()
+                    return datos
+                })
+                .then(datos => verificarEstado(status, datos))
+        },
+        registrarMascota: function() {
+            let status;
+            let datos;
+            fetch(dominio + "/registrar-mascota", {
+                method: "POST",
+                body: JSON.stringify({
+                    tipoPerro: this.tipoPerro,
+                    tipoGato: this.tipoGato,
+                    sexoHembra: this.sexoHembra,
+                    sexoMacho: this.sexoMacho,
+                    nombreMascota: this.nombreMascota,
+                    apodoMascota: this.apodoMascota,
+                    edadMascota: this.edadMascota,
+                    descripcionMascota: this.descripcionMascota
+                })
+            })
+                .then(response => {
+                    status = response.status
+                    datos = response.json()
+                    return datos
+                })
+                .then(datos => verificarEstado(status, datos))
+        }
     },
     created() {
         let idSesion = localStorage.getItem("IDSESION")
-        fetch("http://localhost:9000/api/perfil", {
+        fetch(dominio + "/api/perfil", {
             method : "GET",
             headers: {
                 "Authorization": idSesion

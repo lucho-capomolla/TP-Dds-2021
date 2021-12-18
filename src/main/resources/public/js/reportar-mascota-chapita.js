@@ -1,3 +1,4 @@
+const dominio = "http://rescatedepatitasdds.herokuapp.com";
 
 let status;
 
@@ -44,7 +45,7 @@ let app = new Vue({
         reportarMascota: function (id) {
             let status;
             let datos;
-            fetch("http://localhost:9000/reportar-mascota/" + id, {
+            fetch(dominio + "/reportar-mascota/" + id, {
                 method: "post",
                 body: JSON.stringify({
                     nombre: this.nombre,

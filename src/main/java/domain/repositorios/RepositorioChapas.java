@@ -4,7 +4,6 @@ import domain.business.mascota.Chapa;
 import domain.business.mascota.Mascota;
 import domain.business.users.Persona;
 import domain.repositorios.daos.DAO;
-import domain.security.Usuario;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -35,5 +34,4 @@ public class RepositorioChapas extends Repositorio<Chapa> {
 
         return new BusquedaCondicional(null, chapaQuery);
     }
-
 }

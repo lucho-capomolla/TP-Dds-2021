@@ -1,3 +1,4 @@
+const dominio = "http://rescatedepatitasdds.herokuapp.com";
 
 function verificarEstado(status, datos){
     if(status == 200) {
@@ -20,7 +21,7 @@ let app = new Vue({
         },
         aprobarPublicacion: function(id) {
             let idSesion = localStorage.getItem("IDSESION")
-            fetch("http://localhost:9000/aprobar-publicacion", {
+            fetch(dominio + "/aprobar-publicacion", {
                 method: "POST",
                 headers: {
                     "Authorization": idSesion
@@ -40,7 +41,7 @@ let app = new Vue({
         },
         rechazarPublicacion: function() {
             let idSesion = localStorage.getItem("IDSESION")
-            fetch("http://localhost:9000/rechazar-publicacion", {
+            fetch(dominio + "/rechazar-publicacion", {
                 method: "POST",
                 headers: {
                     "Authorization": idSesion
@@ -63,7 +64,7 @@ let app = new Vue({
         let status;
         let datos;
         let idSesion = localStorage.getItem("IDSESION")
-        fetch("http://localhost:9000/api/publicaciones", {
+        fetch(dominio + "/api/publicaciones", {
             method : "GET",
             headers: {
                 "Authorization": idSesion

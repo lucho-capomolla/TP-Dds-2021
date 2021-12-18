@@ -1,8 +1,9 @@
+const dominio = "http://rescatedepatitasdds.herokuapp.com";
 
 function verificarEstado(status, datos){
     if(status == 200) {
         alert(datos.mensaje);
-        window.location.href = "publicaciones-pendientes"
+        window.location.href = "publicaciones-pendientes";
     }
     else {
         alert(datos.mensaje);
@@ -17,7 +18,7 @@ let app = new Vue({
     methods: {
         aprobarPublicacion: function(id) {
             let idSesion = localStorage.getItem("IDSESION")
-            fetch("http://localhost:9000/aprobar-publicacion", {
+            fetch(dominio + "/aprobar-publicacion", {
                 method: "POST",
                 headers: {
                     "Authorization": idSesion
@@ -37,7 +38,7 @@ let app = new Vue({
         },
         rechazarPublicacion: function() {
             let idSesion = localStorage.getItem("IDSESION")
-            fetch("http://localhost:9000/rechazar-publicacion", {
+            fetch(dominio + "/rechazar-publicacion", {
                 method: "POST",
                 headers: {
                     "Authorization": idSesion
@@ -62,7 +63,7 @@ let app = new Vue({
         let params = window.location.href.split('/');
         let idSesion = localStorage.getItem("IDSESION")
         let id = params[4];
-        fetch("http://localhost:9000/api/publicacion/" + id, {
+        fetch(dominio + "/api/publicacion/" + id, {
             method : "GET",
             headers: {
                 "Authorization": idSesion

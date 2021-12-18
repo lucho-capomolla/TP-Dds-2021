@@ -1,5 +1,4 @@
-
-let status;
+const dominio = "http://rescatedepatitasdds.herokuapp.com";
 
 function verificarEstado(status, datos){
     if(status == 200) {
@@ -22,7 +21,7 @@ let app = new Vue({
         iniciarSesion: function () {
             let status;
             let datos;
-            fetch("http://localhost:9000/iniciar-sesion", {
+            fetch(dominio + "/iniciar-sesion", {
                 method: "post",
                 body: JSON.stringify({
                     userName : this.userName,
@@ -41,4 +40,6 @@ let app = new Vue({
         }
     }
 })
+
+
 

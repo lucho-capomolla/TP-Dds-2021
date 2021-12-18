@@ -56,7 +56,7 @@ public class Chapa extends EntidadPersistente {
 
     public void generarQR(int id) throws IOException {
         QRCode qrGenerator = new QRCode();
-        qrGenerator.crearQR("http://localhost:9000/reportar-mascota/" + id, "ChapitaN°" + id + ".png");
+        qrGenerator.crearQR("http://rescatedepatitasdds.herokuapp.com/reportar-mascota/" + id, "ChapitaN°" + id + ".png");
     //Todo: agregar un Hash en vez del ID de la chapita
 
         // tal vez ese codigo QR se guarda en un repositorio, o directamente queda asi

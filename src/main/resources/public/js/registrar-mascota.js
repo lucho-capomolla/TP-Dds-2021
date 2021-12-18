@@ -1,3 +1,4 @@
+const dominio = "http://rescatedepatitasdds.herokuapp.com";
 
 function hideUser() {
     document.getElementById('registro').style.display = 'none';
@@ -82,7 +83,7 @@ let app = new Vue({
             let idSesion = localStorage.getItem("IDSESION");
             let status;
             let datos;
-            fetch("http://localhost:9000/registrar-mascota", {
+            fetch(dominio + "/registrar-mascota", {
                 method: "POST",
                 headers: {
                     "Authorization": idSesion
@@ -115,7 +116,7 @@ let app = new Vue({
             let idSesion = localStorage.getItem("IDSESION");
             let status;
             let datos;
-            fetch("http://localhost:9000/registrar-mascota", {
+            fetch(dominio + "/registrar-mascota", {
                 method: "POST",
                 headers: {
                     "Authorization": idSesion
@@ -140,7 +141,7 @@ let app = new Vue({
         registrarMascotaYPersona: function() {
             let status;
             let datos;
-            fetch("http://localhost:9000/registrar-mascota", {
+            fetch(dominio + "/registrar-mascota", {
                 method: "POST",
                 body: JSON.stringify({
                     nombre: this.nombre,
@@ -187,7 +188,7 @@ let app = new Vue({
         registroCompleto: function() {
             let status;
             let datos;
-            fetch("http://localhost:9000/registrar-mascota", {
+            fetch(dominio + "/registrar-mascota", {
                 method: "POST",
                 body: JSON.stringify({
                     nombre: this.nombre,
@@ -237,7 +238,7 @@ let app = new Vue({
     },
     created() {
         let idSesion = localStorage.getItem("IDSESION")
-        fetch("http://localhost:9000/api/perfilRegistroMascota", {
+        fetch(dominio + "/api/perfilRegistroMascota", {
             method : "GET",
             headers: {
                 "Authorization": idSesion

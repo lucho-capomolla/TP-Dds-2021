@@ -1,4 +1,4 @@
-
+const dominio = "http://rescatedepatitasdds.herokuapp.com";
 
 let app = new Vue({
     el: "#appVue",
@@ -7,15 +7,15 @@ let app = new Vue({
     },
     methods: {
         estoyPerdido: function(id) {
-            window.location.href = "estoy-perdido/" + id;
+            window.location.href = "mascotas-perdidas-pesado/estoy-perdido/" + id;
         },
         notificarRescatista: function(id) {
-            window.location.href = "notificar-rescatista/" + id;
+            window.location.href = "mascotas-perdidas-pesado/notificar-rescatista/" + id;
         }
     },
     created() {
         let idSesion = localStorage.getItem("IDSESION")
-        fetch("http://localhost:9000/api/mascotas-perdidas", {
+        fetch(dominio + "/api/mascotas-perdidas", {
             method : "GET",
 
         })  .then(response => response.json())

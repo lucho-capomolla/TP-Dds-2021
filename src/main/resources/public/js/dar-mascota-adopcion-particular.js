@@ -1,3 +1,4 @@
+const dominio = "http://rescatedepatitasdds.herokuapp.com";
 
 function verificarEstado(status, datos){
     if(status == 200) {
@@ -28,7 +29,7 @@ let app = new Vue({
             let status;
             let datos;
             let idSesion = localStorage.getItem("IDSESION");
-            fetch("http://localhost:9000/dar-mascota-adopcion/" + id, {
+            fetch(dominio + "/dar-mascota-adopcion/" + id, {
                 method: "POST",
                 headers: {
                     "Authorization": idSesion
@@ -54,15 +55,15 @@ let app = new Vue({
         let datos;
         let params = window.location.href.split('/');
         let id = params[4];
-        fetch("http://localhost:9000/api/darMascotaEnAdopcionUser/" + id, {
+        fetch(dominio + "/api/darMascotaEnAdopcionUser/" + id, {
             method : "GET",
             headers: {
                 "Authorization": idSesion
             }
         })  .then(response => {
-                status = response.status
-                datos = response.json()
-                return datos
+            status = response.status
+            datos = response.json()
+            return datos
         })
             .then(data => {
                 if(status == 200) {

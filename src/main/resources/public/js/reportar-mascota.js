@@ -1,3 +1,4 @@
+const dominio = "http://rescatedepatitasdds.herokuapp.com";
 
 function hideTransito() {
     document.getElementById('transito').style.display = 'none';
@@ -74,7 +75,7 @@ let app = new Vue({
             let idSesion = localStorage.getItem("IDSESION");
             let status;
             let datos;
-            fetch("http://localhost:9000/reportar-mascota", {
+            fetch(dominio + "/reportar-mascota", {
                 method: "post",
                 headers: {
                     "Authorization": idSesion
@@ -105,7 +106,7 @@ let app = new Vue({
             let idSesion = localStorage.getItem("IDSESION");
             let status;
             let datos;
-            fetch("http://localhost:9000/reportar-mascota", {
+            fetch(dominio + "/reportar-mascota", {
                 method: "post",
                 headers: {
                     "Authorization": idSesion
@@ -137,7 +138,7 @@ let app = new Vue({
             let idSesion = localStorage.getItem("IDSESION");
             let status;
             let datos;
-            fetch("http://localhost:9000/reportar-mascota", {
+            fetch(dominio + "/reportar-mascota", {
                 method: "post",
                 headers: {
                     "Authorization": idSesion
@@ -160,7 +161,7 @@ let app = new Vue({
             let idSesion = localStorage.getItem("IDSESION");
             let status;
             let datos;
-            fetch("http://localhost:9000/reportar-mascota", {
+            fetch(dominio + "/reportar-mascota", {
                 method: "post",
                 headers: {
                     "Authorization": idSesion
@@ -184,7 +185,7 @@ let app = new Vue({
         crearPublicacionMascotaPerdidaCompleto: function () {
             let status;
             let datos;
-            fetch("http://localhost:9000/reportar-mascota", {
+            fetch(dominio + "/reportar-mascota", {
                 method: "post",
                 body: JSON.stringify({
                     nombre: this.nombre,
@@ -228,7 +229,7 @@ let app = new Vue({
         crearPublicacionMascotaPerdidaCompletoHogar: function () {
             let status;
             let datos;
-            fetch("http://localhost:9000/reportar-mascota", {
+            fetch(dominio + "/reportar-mascota", {
                 method: "post",
                 body: JSON.stringify({
                     nombre: this.nombre,
@@ -273,7 +274,7 @@ let app = new Vue({
     },
     created() {
         let idSesion = localStorage.getItem("IDSESION")
-        fetch("http://localhost:9000/api/perfil", {
+        fetch(dominio + "/api/perfil", {
             method : "GET",
             headers: {
                 "Authorization": idSesion

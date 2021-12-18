@@ -387,7 +387,6 @@ public class ApiRestController {
         return null;
     }
 
-
     public String obtenerMascotaEnAdopcion(Request request, Response response) {
 
         String idSesion = request.headers("Authorization");

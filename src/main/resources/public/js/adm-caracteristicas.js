@@ -1,8 +1,9 @@
+const dominio = "http://rescatedepatitasdds.herokuapp.com";
 
 function verificarEstado(status, datos){
     if(status == 200) {
         alert(datos.mensaje);
-        window.location.reload();
+        window.location.reload()
     }
     else {
         alert(datos.mensaje);
@@ -21,7 +22,7 @@ let app = new Vue({
         agregarCaracteristica: function() {
             let status;
             let datos;
-            fetch("http://localhost:9000/agregar-caracteristica", {
+            fetch(dominio + "/agregar-caracteristica", {
                 method: "POST",
                 body: JSON.stringify({
                     caracteristicaNueva: this.caracteristicaNueva,
@@ -39,7 +40,7 @@ let app = new Vue({
         mostrarCaracteristicas: function() {
             let status;
             let datos;
-            fetch("http://localhost:9000/visibilizar-caractersticas", {
+            fetch(dominio + "/visibilizar-caractersticas", {
                 method: "POST",
                 body: JSON.stringify({
                     caracteristicasVisibles: this.caracteristicasVisibles,
@@ -57,7 +58,7 @@ let app = new Vue({
         quitarCaracteristicas: function() {
             let status;
             let datos;
-            fetch("http://localhost:9000/ocultar-caracteristicas", {
+            fetch(dominio + "/ocultar-caracteristicas", {
                 method: "POST",
                 body: JSON.stringify({
                     caracteristicasAQuitar: this.caracteristicasAQuitar,
@@ -77,7 +78,7 @@ let app = new Vue({
         let status;
         let datos;
         let idSesion = localStorage.getItem("IDSESION")
-        fetch("http://localhost:9000/api/cambiar-caracteristicas", {
+        fetch(dominio + "/api/cambiar-caracteristicas", {
             method : "GET",
             headers: {
                 "Authorization": idSesion

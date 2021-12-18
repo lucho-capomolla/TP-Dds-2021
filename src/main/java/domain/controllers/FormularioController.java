@@ -556,6 +556,7 @@ public class FormularioController {
         return new Mensaje("Se ha creado la publicación para dar en adopción a la mascota elegida de forma satisfactoria.").transformar();
     }
 
+
 /* ==============================================================================================================
     Adoptar a una Mascota -> El usuario se comunica con el Dueño de la mascota que desea adoptar
    ============================================================================================================== */
